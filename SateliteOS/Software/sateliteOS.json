@@ -33,11 +33,12 @@
 	    ]
 	},
 	{
+	    "title": "Campaign",
 	    "width": 1,
 	    "row": {
 		"3": 1,
 		"4": 1,
-		"5": 1
+		"5": 5
 	    },
 	    "col": {
 		"3": 1,
@@ -52,7 +53,7 @@
 			"plot_type": "line",
 			"legend": true,
 			"height": 3,
-			"value": "[\n\n    {\n         label:\"ay\",data:datasources[\"Launch\"][\"pressure\"]\n    }\n\n\n]\n\n",
+			"value": "[\n\n    {\n         label:\"Pressure\",data:datasources[\"Launch\"][\"pressure\"]\n    }\n\n\n]\n\n",
 			"x_timestamp": true,
 			"points": false,
 			"zoom": ""
@@ -72,11 +73,34 @@
 	    ]
 	},
 	{
+	    "title": "Campaing File",
+	    "width": 1,
+	    "row": {
+		"4": 1,
+		"5": 1
+	    },
+	    "col": {
+		"4": 1,
+		"5": 4
+	    },
+	    "col_width": 2,
+	    "widgets": [
+		{
+		    "type": "my_widget_plugin",
+		    "settings": {
+			"the_text": "datasources[\"campaim\"][\"file\"][0]",
+			"height": 2,
+			"size": "1"
+		    }
+		}
+	    ]
+	},
+	{
 	    "title": "Tilt",
 	    "width": 1,
 	    "row": {
 		"3": 11,
-		"4": 1,
+		"4": 5,
 		"5": 11
 	    },
 	    "col": {
@@ -110,13 +134,13 @@
 	    "width": 1,
 	    "row": {
 		"3": 15,
-		"4": 11,
-		"5": 11
+		"4": 15,
+		"5": 1
 	    },
 	    "col": {
 		"3": 1,
 		"4": 3,
-		"5": 3
+		"5": 1
 	    },
 	    "col_width": 1,
 	    "widgets": [
@@ -145,89 +169,12 @@
 	    ]
 	},
 	{
-	    "width": 1,
-	    "row": {
-		"3": 21,
-		"4": 11,
-		"5": 15
-	    },
-	    "col": {
-		"3": 1,
-		"4": 1,
-		"5": 4
-	    },
-	    "col_width": 2,
-	    "widgets": [
-		{
-		    "type": "google_map",
-		    "settings": {
-			"lat": "-22.869359970092773",
-			"lon": "-42.35321044921875"
-		    }
-		}
-	    ]
-	},
-	{
-	    "width": 1,
-	    "row": {
-		"3": 21,
-		"4": 1,
-		"5": 7,
-		"6": 11
-	    },
-	    "col": {
-		"3": 3,
-		"4": 4,
-		"5": 1,
-		"6": 2
-	    },
-	    "col_width": 1,
-	    "widgets": [
-		{
-		    "type": "picture",
-		    "settings": {
-			"src": "http://192.168.1.155/logo-sateliteOSq.png",
-			"refresh": 11111
-		    }
-		}
-	    ]
-	},
-	{
-	    "title": "Miscellaneous",
-	    "width": 1,
-	    "row": {
-		"3": 31,
-		"4": 17,
-		"5": 1
-	    },
-	    "col": {
-		"3": 1,
-		"4": 3,
-		"5": 3
-	    },
-	    "col_width": 1,
-	    "widgets": [
-		{
-		    "type": "highcharts-timeseries",
-		    "settings": {
-			"timeframe": 60,
-			"blocks": 4,
-			"chartType": "area",
-			"title": "Pressão",
-			"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
-			"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
-			"series1": "datasources[\"Data\"][\"Pressao(hPa)\"]"
-		    }
-		}
-	    ]
-	},
-	{
 	    "title": "Temperature",
 	    "width": 1,
 	    "row": {
 		"3": 15,
-		"4": 11,
-		"5": 1,
+		"4": 15,
+		"5": 7,
 		"6": 17
 	    },
 	    "col": {
@@ -259,6 +206,60 @@
 		    }
 		}
 	    ]
+	},
+	{
+	    "width": 1,
+	    "row": {
+		"3": 21,
+		"4": 21,
+		"5": 13,
+		"6": 11
+	    },
+	    "col": {
+		"3": 3,
+		"4": 3,
+		"5": 1,
+		"6": 2
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "picture",
+		    "settings": {
+			"src": "http://192.168.1.155/logo-sateliteOSq.png",
+			"refresh": 11111
+		    }
+		}
+	    ]
+	},
+	{
+	    "title": "Miscellaneous",
+	    "width": 1,
+	    "row": {
+		"3": 31,
+		"4": 11,
+		"5": 1
+	    },
+	    "col": {
+		"3": 1,
+		"4": 2,
+		"5": 3
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "highcharts-timeseries",
+		    "settings": {
+			"timeframe": 60,
+			"blocks": 4,
+			"chartType": "area",
+			"title": "Pressão",
+			"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+			"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+			"series1": "datasources[\"Data\"][\"Pressao(hPa)\"]"
+		    }
+		}
+	    ]
 	}
     ],
     "datasources": [
@@ -277,7 +278,7 @@
 	    "name": "Launch",
 	    "type": "JSON",
 	    "settings": {
-		"url": "http://192.168.1.155/data2.php",
+		"url": "http://192.168.1.155/data2.php?file=launch-file-20220625_1359.txt",
 		"use_thingproxy": false,
 		"refresh": 5,
 		"method": "GET",

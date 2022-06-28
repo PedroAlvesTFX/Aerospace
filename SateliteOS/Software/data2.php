@@ -1,6 +1,10 @@
 <?php
 
-$file=`ls launch-file-* | sort -r`;
+$file=$_GET['file'];
+if ($file == ""){
+$file=`ls launch-file-* | sort -r | head -n1`;
+}
+
 $b=`cat ./$file`;
 #$b=str_replace("{","[",$b);
 #$b=str_replace("}","]",$b);
@@ -37,7 +41,32 @@ for ($t=0;$t<count($array);$t++){
    $virgula=",";
 }
 
-echo "],\"high\":[\n";
+
+
+echo "],\"gx\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gx'})."\"]\n";
+   $virgula=",";
+}
+echo "],\"gy\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gy'})."\"]\n";
+   $virgula=",";
+}
+
+echo "],\"gz\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gz'})."\"]\n";
+   $virgula=",";
+}
+
+
+
+
+echo "],\"height\":[\n";
 $virgula="";
 for ($t=0;$t<count($array);$t++){
    echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'high'})."\"]\n";
@@ -47,7 +76,9 @@ for ($t=0;$t<count($array);$t++){
 echo "],\"pressure\":[\n";
 $virgula="";
 for ($t=0;$t<count($array);$t++){
-   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'pressure'})."\"]\n";
+//   $press=number_format($array[$t]->{'pressure'},1);
+   $press=$array[$t]->{'pressure'};
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".$press."\"]\n";
    $virgula=",";
 }
 

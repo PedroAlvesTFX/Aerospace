@@ -172,7 +172,7 @@
 		// **onCalculatedValueChanged(settingName, newValue)** (required) : A public function we must implement that will be called when a calculated value changes. Since calculated values can change at any time (like when a datasource is updated) we handle them in a special callback function here.
 		self.onCalculatedValueChanged = function(settingName, newValue)
 		{
-                        console.log( "valueChanged:", settingName, newValue);
+                        //console.log( "valueChanged:", settingName, newValue);
                                 
 			// Remember we defined "the_text" up above in our settings.
 			if(settingName == "value")

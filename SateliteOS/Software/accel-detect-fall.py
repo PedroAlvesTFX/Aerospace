@@ -9,7 +9,7 @@ import math
 from pyGPIO2.gpio import gpio, port
 from time import sleep
 from bmp280 import BMP280
-
+from subprocess import call
 try:
     from smbus2 import SMBus
 except ImportError:
@@ -79,6 +79,8 @@ try:
            f.close()
            os.rename('./accel.txt', 'launch-file-'+datetime.now().strftime("%Y%m%d_%H%M")+'.txt')
 #           os.rename('./accel.txt', 'accel'+str(datetime.timestamp(datetime.now()))+'.txt')
+           call("nohup shutdown -h now", shell=True)
+           
            quit()
 
         temp        = mpu9250.readTemperature()

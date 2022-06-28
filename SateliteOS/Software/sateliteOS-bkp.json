@@ -1,0 +1,275 @@
+{
+    "version": 1,
+//    "header_image": "https://raw.github.com/Freeboard/branding/master/renesas/renesas_logo.png",
+    "allow_edit": true,
+    "plugins": [],
+    "panes": [
+	{
+	    "title": "Tilt",
+	    "width": 1,
+	    "row": {
+		"3": 1,
+		"4": 1,
+		"5": 7
+	    },
+	    "col": {
+		"3": 1,
+		"4": 1,
+		"5": 1
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "highcharts-timeseries",
+		    "settings": {
+			"timeframe": 60,
+			"blocks": 4,
+			"chartType": "spline",
+			"title": "Acelerômetro",
+			"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":-1}",
+			"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":-1}",
+			"series1": "datasources[\"Data\"][\"ax\"]",
+			"series1label": "X",
+			"series2": "datasources[\"Data\"][\"ay\"]",
+			"series2label": "Y",
+			"series3": "datasources[\"Data\"][\"az\"]",
+			"series3label": "Z"
+		    }
+		}
+	    ]
+	},
+	{
+	    "title": "Potentiometer",
+	    "width": 1,
+	    "row": {
+		"3": 1,
+		"4": 1,
+		"5": 1
+	    },
+	    "col": {
+		"3": 3,
+		"4": 2,
+		"5": 2
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "highcharts-timeseries",
+		    "settings": {
+			"timeframe": 60,
+			"blocks": 4,
+			"chartType": "area",
+			"title": "Altura",
+			"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+			"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+			"series1": "datasources[\"Data\"][\"Altura(m)\"]"
+		    }
+		}
+	    ]
+	},
+	{
+	    "width": 1,
+	    "row": {
+		"3": 1,
+		"5": 1
+	    },
+	    "col": {
+		"3": 1,
+		"5": 1
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "flot_extended_plugin",
+		    "settings": {
+			"plot_type": "line",
+			"legend": true,
+			"height": 2,
+			"value": "[\n    {\n         label:\"one\",data:datasources[\"D1\"][\"data\"]\n    },\n    {\n         label:\"two\",data:datasources[\"D1\"][\"data2\"]\n    }\n\n]",
+			"points": true,
+			"zoom": ""
+		    }
+		}
+	    ]
+	},
+	{
+	    "title": "Buttons",
+	    "width": 1,
+	    "row": {
+		"3": 11,
+		"4": 11,
+		"5": 1
+	    },
+	    "col": {
+		"3": 3,
+		"4": 3,
+		"5": 4
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "switch_plugin",
+		    "settings": {
+			"title": "Program Launch",
+			"value": "datasources[\"CONTROL_PRG\"]",
+			"urlOn": "http://192.168.1.155/run.php?cmd=load",
+			"urlOff": "http://192.168.1.155/run.php?cmd=unload",
+			"on_text": "ON",
+			"off_text": "OFF"
+		    }
+		},
+		{
+		    "type": "switch_plugin",
+		    "settings": {
+			"title": "Read for Liftoff",
+			"value": "datasources[\"CONTROL_LIFT\"]",
+			"urlOn": "http://192.168.1.155/run.php?cmd=start",
+			"urlOff": "http://192.168.1.155/run.php?cmd=stop",
+			"on_text": "ON",
+			"off_text": "OFF"
+		    }
+		}
+	    ]
+	},
+	{
+	    "width": 1,
+	    "row": {
+		"3": 11,
+		"5": 11
+	    },
+	    "col": {
+		"3": 3,
+		"5": 3
+	    },
+	    "col_width": 2,
+	    "widgets": [
+		{
+		    "type": "google_map",
+		    "settings": {
+			"lat": "-22.869359970092773",
+			"lon": "-42.35321044921875"
+		    }
+		}
+	    ]
+	},
+	{
+	    "width": 1,
+	    "row": {
+		"4": 11,
+		"5": 11
+	    },
+	    "col": {
+		"4": 2,
+		"5": 2
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "picture",
+		    "settings": {
+			"src": "http://192.168.1.155/logo-sateliteOSq.png",
+			"refresh": 11111
+		    }
+		}
+	    ]
+	},
+	{
+	    "title": "Temperature",
+	    "width": 1,
+	    "row": {
+		"3": 23,
+		"4": 1,
+		"5": 17
+	    },
+	    "col": {
+		"3": 2,
+		"4": 3,
+		"5": 1
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "horizontal-linear-gauge",
+		    "settings": {
+			"title": "Outdoor",
+			"value": "datasources[\"Data\"][\"Temp\"]",
+			"units": "Celsius",
+			"min_value": 15,
+			"max_value": 55
+		    }
+		},
+		{
+		    "type": "horizontal-linear-gauge",
+		    "settings": {
+			"title": "Indoor",
+			"value": "datasources[\"Data\"][\"Temperaure(C)\"]",
+			"units": "Celsius",
+			"min_value": 15,
+			"max_value": 55
+		    }
+		}
+	    ]
+	},
+	{
+	    "title": "Miscellaneous",
+	    "width": 1,
+	    "row": {
+		"3": 33,
+		"4": 1,
+		"5": 1
+	    },
+	    "col": {
+		"3": 2,
+		"4": 4,
+		"5": 3
+	    },
+	    "col_width": 1,
+	    "widgets": [
+		{
+		    "type": "highcharts-timeseries",
+		    "settings": {
+			"timeframe": 60,
+			"blocks": 4,
+			"chartType": "area",
+			"title": "Pressão",
+			"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+			"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+			"series1": "datasources[\"Data\"][\"Pressao(hPa)\"]"
+		    }
+		}
+	    ]
+	}
+    ],
+    "datasources": [
+	{
+	    "name": "Data",
+	    "type": "JSON",
+	    "settings": {
+		"url": "http://192.168.1.155/data.php",
+		"use_thingproxy": true,
+		"refresh": 0.51,
+		"method": "GET",
+		"name": "Data"
+	    }
+	},
+	{
+	    "name": "Hora",
+	    "type": "clock",
+	    "settings": {
+		"refresh": 1,
+		"name": "Hora"
+	    }
+	},
+	{
+	    "name": "D1",
+	    "type": "JSON",
+	    "settings": {
+		"url": "http://192.168.1.155/data1.php?a=1",
+		"use_thingproxy": false,
+		"refresh": 5,
+		"method": "GET"
+	    }
+	}
+    ],
+    "columns": 5
+}
