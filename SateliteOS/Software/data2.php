@@ -69,7 +69,30 @@ for ($t=0;$t<count($array);$t++){
 echo "],\"height\":[\n";
 $virgula="";
 for ($t=0;$t<count($array);$t++){
-   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'high'})."\"]\n";
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gx'})."\"]\n";
+   $virgula=",";
+}
+echo "],\"gy\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gy'})."\"]\n";
+   $virgula=",";
+}
+
+echo "],\"gz\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'gz'})."\"]\n";
+   $virgula=",";
+}
+
+
+
+
+echo "],\"height\":[\n";
+$virgula="";
+for ($t=0;$t<count($array);$t++){
+   echo $virgula."[\"".$array[$t]->{'time'}."\",\"".($array[$t]->{'height'})."\"]\n";
    $virgula=",";
 }
 

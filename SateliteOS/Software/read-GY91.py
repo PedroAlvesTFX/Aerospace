@@ -65,7 +65,7 @@ try:
         print("\"mz\":\"" , ( mag['z'] ),"\",")
 
         temp = mpu9250.readTemperature()
-        print("\"Temp\":\"{:05.2f}\",".format( temp ))
+        print("\"TempMPU9250\":\"{:05.2f}\",".format( temp ))
 
         temperature = bmp280.get_temperature()
         pressure = bmp280.get_pressure()
@@ -74,7 +74,7 @@ try:
 
 #print(temperature, pressure)
 
-        print('"Temperaure(C)":"{:05.2f}","Pressao(hPa)":"{:05.2f}","Altura(m)":"{:05.2f}"'.format(temperature, pressure,altura))
+        print('"TemperaureBMP280(C)":"{:05.2f}",\n"Pressao(hPa)":"{:05.2f}",\n"Altura(m)":"{:05.2f}"'.format(temperature, pressure,altura))
 #	time.sleep(1)
 
 

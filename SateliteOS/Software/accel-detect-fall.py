@@ -66,7 +66,7 @@ try:
            t1 = t1 + 1
            if (t1>1):
               f.write(",")                                                                                                                                                                                                                                                                                                                   #"\"Temp\":\"{:05.2f}\",".format( temp )                                                   
-           f.write("{\"time\":\"" + str(datetime.timestamp(datetime.now()))+"\",\"ax\":\"" + str(ax)+"\",\"ay\":\""+str(ay)+"\",\"az\":\""+str(az)+ "\",\"gx\":\""+str(gx)+"\",\"gy\":\""+str(gy)+"\",\"gz\":\""+str(gz) + "\",\"mgx\":\"" + str(mag['x'])+"\",\"mgy\":\""+str(mag['y'])+"\",\"mgz\":\""+str(mag['z'])+"\",\"temp2\":\"{:3.2f}\"".format(temperature)+",\"pressure\":\"{:3.2f}\"".format(pressure)+",\"high\":\"{:3.2f}\"".format(altura)+"}\n" )
+           f.write("{\"time\":\"" + str(datetime.timestamp(datetime.now()))+"\",\"ax\":\"" + str(ax)+"\",\"ay\":\""+str(ay)+"\",\"az\":\""+str(az)+ "\",\"gx\":\""+str(gx)+"\",\"gy\":\""+str(gy)+"\",\"gz\":\""+str(gz) + "\",\"mgx\":\"" + str(mag['x'])+"\",\"mgy\":\""+str(mag['y'])+"\",\"mgz\":\""+str(mag['z'])+"\",\"temp2\":\"{:3.2f}\"".format(temperature)+",\"pressure\":\"{:3.2f}\"".format(pressure)+",\"height\":\"{:3.2f}\"".format(altura)+"}\n" )
 
         if ( (math.fabs(ax) +  math.fabs(ay) +  math.fabs(az) ) < 0.5   ): # Detecta quando todos os eixos experimentam baixa aceleração
            print("\n ******** ZERO G ********\n   *** Apogeu !!! ***\n" + str(ax)+","+str(ay)+","+str(az) + "\n")
@@ -122,6 +122,10 @@ try:
               sleep(0.01)
               gpio.output(pinscrub,0)
               sleep(0.1)
+              f.close()
+              t1=0
+              f = open("accel.txt","w")
+
            if (acionamento==0 ):   # Processa comando botao ou arquivo controle
                if (launch==0):     # Entra em modo lancamento, isto é, registra leituras sensores no arquivo
                    launch=1
